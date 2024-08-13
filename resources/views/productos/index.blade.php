@@ -23,6 +23,7 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Código</th>
+            <th scope="col">Categorias</th>
             <th scope="col">Nombre</th>
             <th scope="col">Precio de Compra</th>
             <th scope="col">Precio de Venta</th>
@@ -35,6 +36,17 @@
             <tr>
                 <td>{{ $producto->id }}</td>
                 <td><a href="{{ route('productos.show', ['id'=>$producto->id ]) }}">{{ $producto->codigo }}</a></td>
+                <td>
+                    @forelse($producto->categorias as $categoria)
+                        <span class="badge text-bg-secondary">{{ $categoria->nombre }}</span>
+
+                    @empty
+                        Sin Categoria
+                    @endforelse
+
+
+
+                </td>
                 <td>{{ $producto->nombre }}</td>
                 <td>{{ $producto->precio_compra }}</td>
                 <td>{{ $producto->precio_venta }}</td>

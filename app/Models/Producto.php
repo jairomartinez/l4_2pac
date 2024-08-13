@@ -12,4 +12,9 @@ class Producto extends Model
     public function proveedor() {
         return $this->belongsTo(Proveedor::class);
     }
+
+    public function categorias()
+    {
+        return $this->belongsToMany(Categoria::class);
+    }
 }

@@ -38,7 +38,7 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function ódown(): void
+    public function down(): void
     {
         Schema::dropIfExists('productos');
         Schema::dropIfExists('categoria_producto');
