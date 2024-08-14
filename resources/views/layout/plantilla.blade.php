@@ -19,7 +19,21 @@
                 <a class="nav-link" href="{{route('productos.index')}}">Productos</a>
                 <a class="nav-link" href="#">Pricing</a>
                 <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <x-dropdown-link :href="route('logout')"
+                                     onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                        {{ __('Log Out') }}
+                    </x-dropdown-link>
+                </form>
             </div>
+        </div>
+        <div>
+            @auth()
+                <div class="text-white">{{ Auth::user()->name }}</div>
+            @endauth
         </div>
     </div>
 </nav>
